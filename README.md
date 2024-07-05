@@ -6,3 +6,4 @@ This project is about Continous Integration using Git&GitHub, Jenkins, Nexus, So
 - Checkstyle will analysis the code and share the report to SonarQube server.
 - SonarQube server will perform the quality gate for the code and if anything is failed, it will trigger the notification to Slack channel.
 - If quality gates are passed, it will build the project using Maven build tool and store it in repository, here I am using Nexus repository which is sonatype. Here if build is failed, it will trigger the notification to Slack channel.
+*******************************************************
