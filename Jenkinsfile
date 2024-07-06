@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('output') {
+        stage('build') {
             steps {
-                echo "Executed my project"
+                bat 'mvn package'
             }
         }
     }
