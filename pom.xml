@@ -5,4 +5,10 @@
   <groupId>com.cicd</groupId>
   <artifactId>my-project</artifactId>
   <version>1.0</version>
+  <distributionManagement>
+  <repository>
+   <id>myproject</id>
+   <url>http://localhost:8081/repository/maven-releases/</url>
+  </repository>
+ </distributionManagement>
 </project>
