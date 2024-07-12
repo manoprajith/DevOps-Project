@@ -2,7 +2,7 @@
   <servers>
     <server>
       <id>myproject</id>
-      <name>Nexus</name>
+      <name>Nexus Repository</name>
       <username>admin</username>
       <password>admin</password>
     </server>
