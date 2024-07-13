@@ -31,7 +31,7 @@ pipeline {
                 artifacts: [
                             [artifactId: projectName,
                             classifier: '',
-                            file: 'C:\ProgramData\Jenkins\.jenkins\workspace\CICD manual\target\my-project-1.0.jar',
+                            file: 'C:\ProgramData\Jenkins\.jenkins\workspace\CICD pipeline\target\my-project-1.0.jar',
                             type: 'jar']
                 ]
                 )
