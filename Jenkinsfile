@@ -31,7 +31,7 @@ pipeline {
                 artifacts: [
                             [artifactId: my-project,
                             classifier: '',
-                            file: 'my-project-1.0.jar',
+                            file: 'my-project-1.0',
                             type: 'jar']
                 ]
                 )
