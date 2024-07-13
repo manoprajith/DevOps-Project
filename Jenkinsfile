@@ -1,14 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        NEXUS_URL = 'http://nexus.example.com:8081/repository/maven-releases/'
-        NEXUS_CREDENTIALS_ID = 'Nexus'
-        GROUP_ID = 'com.cicd'
-        ARTIFACT_ID = 'my-project'
-        VERSION = '1.0'
-    }
-
     tools {
          maven 'Maven'
     }
@@ -32,7 +24,7 @@ pipeline {
                             [
                                 artifactId: 'my-project',
                                 classifier: '',
-                                file: 'target\my-project-1.0.jar',
+                                file: 'my-project-1.0.jar',
                                 type: 'jar'
                             ]
                         ]
