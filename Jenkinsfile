@@ -29,7 +29,7 @@ pipeline {
                 repository: 'maven-releases',
                 credentialsId: 'Nexus',
                 artifacts: [
-                            [artifactId: projectName,
+                            [artifactId: my-project,
                             classifier: '',
                             file: 'my-project-1.0.jar',
                             type: 'jar']
