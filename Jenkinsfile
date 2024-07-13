@@ -18,5 +18,24 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
+        stage('upload artifact in nexus repo'){
+            steps {
+                nexusArtifactUploader(
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                nexusUrl: 'localhost:8081/#browse/browse:maven-releases',
+                groupId: 'com.cicd',
+                version: '1.0',
+                repository: 'maven-releases',
+                credentialsId: 'Nexus',
+                artifacts: [
+                            [artifactId: projectName,
+                            classifier: '',
+                            file: 'C:\ProgramData\Jenkins\.jenkins\workspace\CICD manual\target\my-project-1.0.jar',
+                            type: 'jar']
+                ]
+                )
+            }
+        }
     }
 }
