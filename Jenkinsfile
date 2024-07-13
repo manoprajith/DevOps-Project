@@ -20,9 +20,11 @@ pipeline {
         }
         stage('upload artifact in nexus'){
             steps {
-                def jarFile = "target/*.jar"
-                nexusArtifactUploader(
-                    nexusVersion: 'nexus3',
+                script{
+                    def jarFile = "target/*.jar"
+
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
                         protocol: 'http',
                         nexusUrl: env.NEXUS_URL,
                         groupId: env.GROUP_ID,
