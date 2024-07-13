@@ -32,7 +32,7 @@ pipeline {
                             [
                                 artifactId: 'my-project',
                                 classifier: '',
-                                file: 'my-project-1.0.jar',
+                                file: 'target\my-project-1.0.jar',
                                 type: 'jar'
                             ]
                         ]
