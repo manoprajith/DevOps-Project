@@ -33,8 +33,9 @@ pipeline {
         }
         stage('Sonar code check') {
             steps{
+                def scannerHome = tool 'SonarQube Scanner'
                 withSonarQubeEnv(credentialsId: 'SonarQube') {
-                    bat 'sh "-Dsonar.projectKey=my-project -Dsonar.sources=src/main/java/hello -Dsonar.host.url=http://localhost:9000 -Dsonar.sonar.projectKey=DevOps"'
+                    bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=my-project -Dsonar.sources=src/main/java/hello -Dsonar.host.url=http://localhost:9000 -Dsonar.sonar.projectKey=DevOps"
             }
         }
     }
