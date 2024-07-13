@@ -34,7 +34,7 @@ pipeline {
         stage('Sonar code check') {
             steps{
                 withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'SonarQube') {
-                    bat "-Dsonar.sources=src/main/java/hello -Dsonar.host.url=http://localhost:9000 -Dsonar.sonar.projectKey=DevOps"
+                    bat "sonar.sources=src/main/java/hello sonar.host.url=http://localhost:9000 sonar.projectKey=DevOps"
             }
         }
     }
