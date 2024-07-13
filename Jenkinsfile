@@ -1,5 +1,14 @@
 pipeline {
     agent any
+
+    environment {
+        NEXUS_URL = 'http://nexus.example.com:8081/repository/maven-releases/'
+        NEXUS_CREDENTIALS_ID = 'admin'
+        GROUP_ID = 'com.cicd'
+        ARTIFACT_ID = 'my-project'
+        VERSION = '1.0'
+    }
+
     tools {
          maven 'Maven'
     }
@@ -11,7 +20,24 @@ pipeline {
         }
         stage('upload artifact in nexus'){
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'my-project', classifier: '', file: '**/*.jar', type: 'jar']], credentialsId: 'Nexus', groupId: 'com.cicd', nexusUrl: 'http://localhost:8081/repository/maven-releases/', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0'
+                def jarFile = "target/*.jar"
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: env.NEXUS_URL,
+                        groupId: env.GROUP_ID,
+                        version: env.VERSION,
+                        repository: 'maven-releases',
+                        credentialsId: env.NEXUS_CREDENTIALS_ID,
+                        artifacts: [
+                            [
+                                artifactId: env.ARTIFACT_ID,
+                                classifier: '',
+                                file: jarFile,
+                                type: 'jar'
+                            ]
+                        ]
+                    )
             }
         }
     }
