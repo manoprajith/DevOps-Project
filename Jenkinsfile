@@ -18,37 +18,5 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
-
-        stage('Verify Build Output') {
-            steps {
-                sh 'ls -l target'
-            }
-        }
-
-        stage('upload artifact in nexus'){
-            steps {
-                script{
-                    def jarFile = "target/*.jar"
-
-                    nexusArtifactUploader(
-                        nexusVersion: 'nexus3',
-                        protocol: 'http',
-                        nexusUrl: env.NEXUS_URL,
-                        groupId: env.GROUP_ID,
-                        version: env.VERSION,
-                        repository: 'maven-releases',
-                        credentialsId: env.NEXUS_CREDENTIALS_ID,
-                        artifacts: [
-                            [
-                                artifactId: env.ARTIFACT_ID,
-                                classifier: '',
-                                file: jarFile,
-                                type: 'jar'
-                            ]
-                        ]
-                    )
-            }
-        }
     }
-}
 }
