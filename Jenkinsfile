@@ -18,6 +18,13 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
+
+        stage('Verify Build Output') {
+            steps {
+                sh 'ls -l target'
+            }
+        }
+
         stage('upload artifact in nexus'){
             steps {
                 script{
