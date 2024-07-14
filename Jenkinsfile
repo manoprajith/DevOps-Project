@@ -34,7 +34,7 @@ pipeline {
         stage('Sonar code check') {
             steps{
                 withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'SonarQube') {
-                bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar \
+                bat 'mvn sonar:sonar \
                     -Dsonar.sources=src/main/java/hello \
                     -Dsonar.host.url=http://localhost:9000 \
                     -Dsonar.projectKey=DevOps'
