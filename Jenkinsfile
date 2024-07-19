@@ -41,5 +41,10 @@ pipeline {
             }
         }
     }
+    stage('Slack message'){
+        steps{
+            slackSend channel: 'jenkins', message: 'Pipeline executed successfully'
+        }
+    }
 }
 }
