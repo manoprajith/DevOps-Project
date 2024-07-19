@@ -43,7 +43,7 @@ pipeline {
     }
     stage('Slack message'){
         steps{
-            slackSend channel: 'jenkins', message: 'Pipeline executed successfully'
+            slackSend channel: 'jenkins', message: 'CICD Pipeline job executed successfully'
         }
     }
 }
