@@ -45,9 +45,8 @@ pipeline {
                         -Dsonar.sources=src/main/java/hello \
                         -Dsonar.tests=src/test/java/hello \
                         -Dsonar.host.url=http://localhost:9000 \
-                        -Dsonar.projectKey=DevOps'
+                        -Dsonar.projectKey=DevOps' waitForQualityGate abortPipeline: true
                 }
-                waitForQualityGate abortPipeline: true
             }
             }
     }
