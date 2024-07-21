@@ -49,7 +49,7 @@ pipeline {
                 }
                 }
                 steps{
-                    waitForQualityGate abortPipeline: false, credentialsId: 'SonarQube'
+                    waitForQualityGate abortPipeline: true, credentialsId: 'SonarQube'
                 }
             }
     }
