@@ -47,11 +47,11 @@ pipeline {
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
                 }
+                }
                 steps{
                     waitForQualityGate abortPipeline: false, credentialsId: 'SonarQube'
                 }
             }
-        }
     }
 
     post{
