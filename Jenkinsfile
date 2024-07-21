@@ -47,7 +47,6 @@ pipeline {
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
                 }
-                waitForQualityGate {abortPipeline: false}
             }
             }
     }
