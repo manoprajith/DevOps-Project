@@ -43,6 +43,7 @@ pipeline {
                     withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'SonarQube') {
                     bat 'mvn sonar:sonar \
                         -Dsonar.sources=src/main/java/hello \
+                        -Dsonar.tests=src/test/java/hello \
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
                 }
