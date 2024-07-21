@@ -46,7 +46,11 @@ pipeline {
                         -Dsonar.tests=src/test/java/hello \
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
-                    waitForQualityGate abortPipeline: false
+                }
+            }
+            stage('Sonar status check'){
+                steps{
+                    waitForQualityGate abortPipeline: false, credentialsId: 'SonarQube'
                 }
             }
         }
