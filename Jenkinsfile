@@ -13,6 +13,11 @@ pipeline {
             stage('build') {
                 steps {
                     bat 'mvn clean package'
+                    slackSend (
+                        channel:"${SLACK_CHANNEL}",
+                        tokenCredentialId: "${SLACK_CREDENTIALS_ID}",
+                        message:"Build step executed successfully"
+                    )
                 }
             }
             stage('upload artifact in nexus repo'){
@@ -34,6 +39,11 @@ pipeline {
                                 ]
                             ]
                         )
+                        slackSend (
+                        channel:"${SLACK_CHANNEL}",
+                        tokenCredentialId: "${SLACK_CREDENTIALS_ID}",
+                        message:"upload artifact in nexus repo step executed successfully"
+                        )
                 }
             }
             stage('Sonar code check') {
@@ -43,6 +53,12 @@ pipeline {
                         -Dsonar.sources=src/main/java/hello \
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
+                    
+                    slackSend (
+                        channel:"${SLACK_CHANNEL}",
+                        tokenCredentialId: "${SLACK_CREDENTIALS_ID}",
+                        message:"sonar code check step executed successfully"
+                    )
                 }
             }
         }
