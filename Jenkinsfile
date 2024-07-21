@@ -28,9 +28,9 @@ pipeline {
                             credentialsId: 'Nexus',
                             artifacts: [
                                 [
-                                    artifactId: 'my-project',
+                                    artifactId: 'my_project',
                                     classifier: '',
-                                    file: 'target/my-project-1.0.jar',
+                                    file: 'target/my_project-1.0.jar',
                                     type: 'jar'
                                 ]
                             ]
