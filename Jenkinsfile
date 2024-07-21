@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SLACK_CHANNEL = 'jenkins'
-        SLACK_CREDENTIALS_ID = 'G6JGBDoS1lWA88DmLXJHL3g6'
+        SLACK_CREDENTIALS_ID = 'Slack'
     }
 
     tools {
