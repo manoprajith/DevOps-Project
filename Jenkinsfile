@@ -38,7 +38,7 @@ pipeline {
                 }
             }
 
-            stage('Sonar code check') {
+            stage('Sonar code check'){
                 steps{
                     withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'SonarQube') {
                     bat 'mvn sonar:sonar \
@@ -47,8 +47,6 @@ pipeline {
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
                 }
-            }
-            stage('Sonar status check'){
                 steps{
                     waitForQualityGate abortPipeline: false, credentialsId: 'SonarQube'
                 }
