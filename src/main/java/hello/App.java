@@ -1,4 +1,4 @@
-package com.cicd.my-project;
+package com.cicd.my_project;
 
 /**
  * Hello world!
