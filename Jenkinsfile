@@ -15,6 +15,7 @@ pipeline {
                     bat 'mvn clean package'
                 }
             }
+
             stage('upload artifact in nexus repo'){
                 steps {
                     nexusArtifactUploader(
@@ -36,6 +37,7 @@ pipeline {
                         )
                 }
             }
+
             stage('Sonar code check') {
                 steps{
                     withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'SonarQube') {
@@ -47,6 +49,7 @@ pipeline {
             }
         }
     }
+
     post{
         success{
             slackSend (
