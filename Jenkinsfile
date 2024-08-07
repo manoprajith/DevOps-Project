@@ -20,8 +20,8 @@ pipeline {
                 steps{
                 withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'SonarQube') {
                     bat 'mvn sonar:sonar \
-                        -Dsonar.sources=src/main/java/hello \
-                        -Dsonar.tests=src/test/java/hello \
+                        -Dsonar.sources=src/main/java/com/sample/helloworld \
+                        -Dsonar.tests=src/test/java/com/sample/helloworld \
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.projectKey=DevOps'
                 }
@@ -34,15 +34,15 @@ pipeline {
                             nexusVersion: 'nexus3',
                             protocol: 'http',
                             nexusUrl: 'localhost:8081/repository/maven-releases/',
-                            groupId: 'com.cicd',
+                            groupId: 'com.sample',
                             version: '1.0',
                             repository: 'maven-releases',
                             credentialsId: 'Nexus',
                             artifacts: [
                                 [
-                                    artifactId: 'my_project',
+                                    artifactId: 'helloworld',
                                     classifier: '',
-                                    file: 'target/my_project-1.0.jar',
+                                    file: 'target/helloworld-1.0.jar',
                                     type: 'jar'
                                 ]
                             ]

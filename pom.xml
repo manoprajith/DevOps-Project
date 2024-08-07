@@ -3,10 +3,10 @@
   
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.cicd</groupId>
-  <artifactId>my_project</artifactId>
+  <groupId>com.sample</groupId>
+  <artifactId>helloworld</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging> <!-- Specify WAR packaging -->
+  <packaging>jar</packaging>
 
   <distributionManagement>
     <repository>
